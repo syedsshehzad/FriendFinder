@@ -9,88 +9,237 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-		<style>body {margin: 25px;}</style>
+		<!-- JQuery -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<style>
+			body {margin: 25px;}
+			fieldset {
+				background-color: rgb(200,255,255);
+				border: dashed 2px rgb(50,155,155);
+				padding: 25px;
+			}
+			form {
+				background-color: rgb(255,200,255);
+				padding: 25px;
+			}
+		</style>
 
 		<title>Survey</title>
 	</head>
 
 	<body>
 		<h1>Dating Survey</h1>
-
+		
 		<form>
-			<input type="text" label="enter name">
-			<button type="submit">Submit</button>
-
 			<fieldset>
-				<legend>Question #1</legend>
+				<legend>About You</legend>
 				<div class="form-group">
-				    <label for="sel1">Select list (select one):</label>
-				    <select class="form-control" id="sel1">
-					    <option>1</option>
-					    <option>2</option>
-					    <option>3</option>
-					    <option>4</option>
-				    </select>
+				    <label for="name">Name (required)</label>
+				    <input type="text" class="form-control" id="1" placeholder="Enter name">
+				</div>
+				<div class="form-group">
+					<label>Link to photo image (required)</label>
+					<input type="text" class="form-control" id="2" placeholder="link">
 				</div>
 			</fieldset>
 
+			<fieldset>
+				<legend>Question 1</legend>
+				<div class="form-group">
+					<label for="mind">Your mind is always buzzing with unexplored ideas and plans.</label>
+					<select class="form-control" id="3">
+						<option disabled selected>Please pick one</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+			</fieldset>
 
-				<label for="lookfor">What do you look for in a partner?</label>
-			    <select name="lookfor" id="lookfor">
-			      <option disabled selected>Please pick one</option>
-			      <option>Attitude</option>
-			      <option>Smartness</option>
-			      <option>Sense of humor</option>
-			      <option>Personality</option>
-			      <option>Body</option>
-			    </select>
+			<fieldset>
+				<legend>Question 2</legend>
+				<div class="form-group">
+					<label for="mind">Generally speaking, you rely more on your experience than your imagination.</label>
+					<select class="form-control" id="4">
+						<option disabled selected>Please pick one</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+			</fieldset>
 
-				<label for="food">What is your favorite food out of the choices?</label>
-			    <select name="food" id="food">
-			      <option disabled selected>Please pick one</option>
-			      <option>Attitude</option>
-			      <option>Smartness</option>
-			      <option>Sense of humor</option>
-			      <option>Personality</option>
-			      <option>Body</option>
-			    </select>
+			<fieldset>
+				<legend>Question 3</legend>
+				<div class="form-group">
+					<label for="mind">You find it easy to stay relaxed and focused even when there is some pressure.</label>
+					<select class="form-control" id="5">
+						<option disabled selected>Please pick one</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+			</fieldset>
 
-				<label for="music">What is your favorite genre of music?</label>
-			    <select name="music" id="music">
-			      <option disabled selected>Please pick one</option>
-			      <option>Classic rock</option>
-			      <option>Modern rock</option>
-			      <option>Hip-hop</option>
-			      <option>Country</option>
-			      <option>Max Martin</option>
-			    </select>
+			<fieldset>
+				<legend>Question 4</legend>
+				<div class="form-group">
+					<label for="mind">You rarely do something just out of sheer curiosity.</label>
+					<select class="form-control" id="6">
+						<option disabled selected>Please pick one</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+			</fieldset>
 
+			<fieldset>
+				<legend>Question 5</legend>
+				<div class="form-group">
+					<label for="mind">People can rarely upset you.</label>
+					<select class="form-control" id="7">
+						<option disabled selected>Please pick one</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+			</fieldset>
+
+			<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit</button>
 
 		</form>
+
+		<!-- <form>
+			
+			<fieldset id="place">
+				<legend>Question 1</legend>
+				<div class="form-group">
+				    <label for="place">What is your favorite place to be during vacation?</label>
+				    <select class="form-control">
+				    	<option disabled selected>Please pick one</option>
+					    <option>Las Vegas</option>
+					    <option>Canadian Rockies</option>
+					    <option>Southern California Coast</option>
+					    <option>Virginia Beach</option>
+				    </select>
+				</div>
+				<button type="submit">Submit</button>
+			</fieldset>
+
+			<fieldset id="food">
+				<legend>Question 2</legend>
+				<div class="form-group">
+				    <label for="food">Favorite food? (select one):</label>
+				    <select class="form-control">
+				    	<option disabled selected>Please pick one</option>
+					    <option>Shrimp</option>
+					    <option>Lasagna</option>
+					    <option>Boiled carrots</option>
+					    <option>Steamed broccoli</option>
+				    </select>
+				</div>
+				<button type="submit">Submit</button>
+			</fieldset>
+
+			<fieldset id="music">
+				<legend>Question 3</legend>
+				<div class="form-group">
+				    <label for="music">What is your favorite genre of music?</label>
+				    <select class="form-control">
+				    	<option disabled selected>Please pick one</option>
+					    <option>Classic rock</option>
+					    <option>Modern rock</option>
+					    <option>Hip-hop</option>
+					    <option>Country</option>
+				    </select>
+				</div>
+				<button type="submit">Submit</button>
+			</fieldset>
+
+		</form> -->
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img height="200" width="auto">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 		<section></section>
 
 		<!-- Functional JavaScript -->
 		<script>
-			$("button").click(event => {
+			$("button").click(function(event) {
+
 				event.preventDefault();
-				var name = {field: $("input").val().trim()};
-				console.log(name);
-				$.post("api/friends/", name)
+
+				//var object = {};
+				var scores = [];
+
+				for (var i = 3; i < 8; i++) {
+					scores[i-3] = $("#" + i).val();
+				}
+
+				var object = {
+					name: $("#1").val().trim(),
+					photo: $("#2").val().trim(),
+					scores: scores
+				};
+
+				console.log(object);
+				// var id = $(this).parent().attr("id");
+				// var name = {field: $("#" + id + " select").val()};
+				// console.log(name);
+				$.post("api/friends/", object)
 				.then(data => {
-					//$("section").append(data);
+					$("section").append(data);
 					console.log(data)
 					//$.get("api/friends/list", dat => {
-						data.forEach(entry => {
-							$("section").append(entry.field);
-						})
+						// data.forEach(entry => {
+						// 	$("section").append(entry.field);
+						// })
 											//});
+					$('#exampleModalLabel').html(data.name);
+					$('img').attr('src', data.photo);
 				});
 			});
 		</script>
 	    
     	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<!--script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 

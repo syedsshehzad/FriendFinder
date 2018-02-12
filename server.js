@@ -11,7 +11,7 @@ var app = express();
 var PORT = 3000;
 
 // Sets up the Express app to handle data parsing
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
@@ -29,12 +29,42 @@ app.get("/api/friends/list", (req, res) => {
 });
 
 app.post("/api/friends", (req, res) => {
-	var name = req.body;
-	//console.log(name);
-	//res.json(name);
-	fileData.push(name);
+	var newGuy = req.body;
+	console.log(newGuy);
+	console.log(fileData);
+
+	//	The differences array is a 2-dimensional array.
+	//	Each row (i) corresponds to a friend in the array.
+	//	Each column (j) corresponds to each question.
+	var diffs = [];
+
+	/*	The totals array will be filled with each (total) sum of the differences 
+	for each friend of all survey questions. The new person will not be added to 
+	the DB until after making comparisons, so that you don't match with yourself. */
+	var totals = [];
+
+	for (var i = 0; i < fileData.length; i++) {
+		//	Initialize:
+		diffs.push([]);
+		totals[i] = 0;
+
+		for (var j = 0; j < newGuy.scores.length; j++) {
+			diffs[i][j] = newGuy.scores[j] - fileData[i].scores[j];
+			//	Difference is added to the total each time.
+			totals[i] += Math.abs( diffs[i][j] );
+		}
+	}
+
+	console.log(diffs);
+	console.log(totals.toString());
+	//	The minimum difference is the friend match.
+	var matchId = totals.indexOf( Math.min( ...totals ) ) ;
+	var match = fileData[matchId];
+	console.log(match);
+	//res.json(newGuy);
+	fileData.push(newGuy);
 	//console.log(fileData);
-	res.send(fileData);
+	res.json(match);
 	//res.send("hello")
 });
 
