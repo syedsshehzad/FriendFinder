@@ -1,15 +1,13 @@
 {
- "name": "friend finder",
+ "name": "friend-finder",
  "version": "1.0.0",
- "engines": {
- 	"node": "8.9.4"
- },
  "description": "Helps you find the friends you are looking for",
  "main": "server.js",
  "dependencies": {
    "body-parser": "^1.15.0",
    "express": "^4.13.4"
  },
+ "devDependencies": {},
  "scripts": {
    "start": "node server.js",
    "test": "echo \"Error: no test specified\" && exit 1",
